@@ -261,8 +261,8 @@ if __name__ =="__main__":
 
     # detector = YoloDetector(vehicle['names'],vehicle['weights'],vehicle['cfg'])
     detector = YoloDetector("api/models/detector/coco.names", 
-                        "api/models/detector/y4t-custom.y4t-custom",
-                        "api/models/detector/y4t-custom")
+                        "api/models/detector/y4t-custom.weights",
+                        "api/models/detector/y4t-custom.cfg")
 
     def videotest():
         video_folder = r'D:\neoris.com\CX US Image Recognition - ComputerVision\data\datasets\videos'

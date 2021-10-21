@@ -54,7 +54,7 @@ class Detector:
         if st.button('Detect'):
             detections = self.detector.DetectOnImage(open_cv_image, conf, nms_tresh)
             if draw and detections is not None:
-                self.detector.DrawDetections(open_cv_image, detections)
+                self.detector.DrawDetections(open_cv_image, detections, self.detector.colors)
             open_cv_image = open_cv_image[:, :, ::-1]
             self.img = PImage.fromarray(open_cv_image)
             return detections
