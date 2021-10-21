@@ -259,7 +259,10 @@ if __name__ =="__main__":
                 'names':r'models\plate_recognition\obj.names'}
     models = {'vehicle':vehicle, 'props':props, 'plate':plate}
 
-    detector = YoloDetector(vehicle['names'],vehicle['weights'],vehicle['cfg'])
+    # detector = YoloDetector(vehicle['names'],vehicle['weights'],vehicle['cfg'])
+    detector = YoloDetector("api/models/detector/coco.names", 
+                        "api/models/detector/y4t-custom.y4t-custom",
+                        "api/models/detector/y4t-custom")
 
     def videotest():
         video_folder = r'D:\neoris.com\CX US Image Recognition - ComputerVision\data\datasets\videos'
@@ -294,6 +297,6 @@ if __name__ =="__main__":
         return img, detections
 
 
-    img, detections = fpsTest(r'tests\imgs\vehicle_img_test.png')
+    img, detections = fpsTest(r'prueba.jpg')
     cv2.imshow('test',img)
     cv2.waitKey(0)
