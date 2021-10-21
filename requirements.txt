@@ -1,0 +1,9 @@
+ 
+numpy
+streamlit
+opencv-contrib-python
+torch
+torchvision
+fastai
+jupyter
+imutils

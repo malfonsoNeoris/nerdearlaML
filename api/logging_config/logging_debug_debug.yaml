@@ -1,0 +1,47 @@
+version: 1
+disable_existing_loggers: false
+formatters:
+  json:
+    #format: "[%(asctime)s] %(process)d %(levelname)s %(name)s:%(funcName)s:%(lineno)s - %(message)s"
+    format: "%(asctime)s - %(levelname)s - %(name)s - %(processName)s - %(threadName)s: %(message)s"
+  simple:
+    format: "%(asctime)s - %(levelname)s - %(name)s - %(processName)s - %(threadName)s: %(message)s"
+  screenf:
+    format: "%(asctime)s - %(levelname)s - %(processName)s - %(threadName)s: %(message)s"
+    datefmt: '%H:%M:%S'
+handlers:
+  console_handler:
+    class: logging.StreamHandler
+    stream: ext://sys.stdout
+    # formatter: simple
+    formatter: screenf
+    level: INFO
+  info_file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    encoding: utf8
+    filename: logs/logging.log
+    maxBytes: 1024000
+    backupCount: 10
+    formatter: simple
+  error_file_handler:
+    class: logging.handlers.RotatingFileHandler
+    level: WARNING
+    encoding: utf8
+    filename: logs/logging_warning.log
+    maxBytes: 1024000
+    backupCount: 10
+    formatter: simple
+loggers:
+  uvicorn.error:
+    level: DEBUG
+    handlers: [console_handler, info_file_handler, error_file_handler]
+    propagate: no
+  uvicorn.access:
+    level: DEBUG
+    handlers: [console_handler, info_file_handler, error_file_handler]
+    propagate: no
+
+root:
+  level: INFO
+  handlers: [console_handler, info_file_handler, error_file_handler]
