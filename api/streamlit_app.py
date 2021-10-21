@@ -20,9 +20,9 @@ SIDEBAR_OPTIONS = [DETECTOR,CLASSIFIER]
 
 class Detector:
     def __init__(self, draw=True):
-        weights_file = "models/detector/y4tCustom.weights"
-        names_file = "models/detector/vehicle_detection/coco.names"
-        cfg_file = "models/detector/vehicle_detection/y4tCustom.cfg"
+        weights_file = "models/detector/y4t-custom.weights"
+        names_file = "models/detector/coco.names"
+        cfg_file = "models/detector/y4t-custom.cfg"
 
         self.detector = YoloDetector(names_file, weights_file,cfg_file, input_size = (416, 416) )
         self.img = self.get_image_from_upload()

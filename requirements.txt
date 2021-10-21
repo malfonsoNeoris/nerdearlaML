@@ -2,10 +2,11 @@
 numpy
 streamlit
 opencv-contrib-python
-torch
-torchvision
+torch==1.9.0
+torchvision==0.10.0
 fastai
 jupyter
 imutils
 fastapi
 uvicorn
+python-multipart

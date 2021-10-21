@@ -13,10 +13,11 @@ router = APIRouter()
 print("Initializing Classifier ...")
 filename = 'models/classifier/classifier.pkl'
 import pathlib
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
-truck_class = FastAiClassifier(filename, use_gpu=True)
-pathlib.PosixPath = temp
+### Uncomment for windows
+# temp = pathlib.PosixPath
+# pathlib.PosixPath = pathlib.WindowsPath
+truck_class = FastAiClassifier(filename, use_gpu=False)
+# pathlib.PosixPath = temp
 print("Done initializing.")
 import json
 

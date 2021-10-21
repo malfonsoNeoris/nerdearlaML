@@ -10,14 +10,14 @@ from common.image_utils import *
 from detectors.yolo_detector import YoloDetector
 
 names_file = "models/detector/coco.names"
-weights_file = "models/detector/y4t-Custom.weights"
-cfg_file = "models/detector/y4t-Custom.cfg"
+weights_file = "models/detector/y4t-custom.weights"
+cfg_file = "models/detector/y4t-custom.cfg"
 
 
 
 router = APIRouter()
 print("Initializing TRUCK DETECTOR ...")
-detector = YoloDetector(names_file,weights_file,cfg_file)
+detector = YoloDetector(names_file,weights_file,cfg_file, use_gpu=False)
 print("Done initializing.")
 import json
 

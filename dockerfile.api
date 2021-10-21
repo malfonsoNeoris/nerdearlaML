@@ -1,3 +1,4 @@
+# ARG BASE_IMAGE=nvcr.io/nvidia/pytorch:21.06-py3
 ARG BASE_IMAGE=nvcr.io/nvidia/pytorch:20.11-py3
 #ARG python:3.7-buster
 FROM ${BASE_IMAGE}
@@ -29,7 +30,7 @@ RUN pip3 install -r requirements.txt
 # # THIS IS TO FIX OPENCV...check later
 # RUN apt-get update
 # RUN apt-get install ffmpeg libsm6 libxext6  -y
-
+RUN pip3 install torch==1.9.0 --upgrade
 #COPY CODE TO RUN!
 COPY api /usr/
 

@@ -1,6 +1,6 @@
 import logging
 from common.logging_utils import configure_logging
-configure_logging("logging_config/logging_debug_debug.yaml")
+# configure_logging("logging_config/logging_debug_debug.yaml")
 from fastapi import FastAPI
 from starlette.responses import JSONResponse
 from fastapi import APIRouter
