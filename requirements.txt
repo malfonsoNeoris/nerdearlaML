@@ -7,3 +7,5 @@ torchvision
 fastai
 jupyter
 imutils
+fastapi
+uvicorn

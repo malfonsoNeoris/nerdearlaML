@@ -4,18 +4,13 @@ configure_logging("logging_config/logging_debug_debug.yaml")
 from fastapi import FastAPI
 from starlette.responses import JSONResponse
 from fastapi import APIRouter
-from routers.truckd_router import router as truckd_router
-from routers.truckc_router import router as truckc_router
-from routers.propd_router import router as propd_router
-from routers.ocr_router import router as paddleo_router
-from routers.customo_router import router as customo_router
+from routers.detector_router import router as detector_router
+from routers.classifier_router import router as classifier_router
+
 
 app = FastAPI()
-app.include_router(truckd_router, prefix='/truckdetector')
-app.include_router(truckc_router, prefix='/classifier')
-app.include_router(propd_router, prefix='/propdetector')
-app.include_router(paddleo_router, prefix='/ocr')
-app.include_router(customo_router, prefix='/platerecognition')
+app.include_router(detector_router, prefix='/detector')
+app.include_router(classifier_router, prefix='/classifier')
 
 
 @app.get('/', status_code=200)
